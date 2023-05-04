@@ -1,0 +1,19 @@
+.footer {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-align: center;
+
+  color: $color-gray-light;
+  padding-bottom: 2.4rem;
+
+  a:link,
+  a:visited {
+    font-weight: 700;
+    color: inherit;
+  }
+
+  animation: opacity 1.2s ease-in-out backwards;
+  animation-delay: 2s;
+}

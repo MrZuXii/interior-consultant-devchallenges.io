@@ -1,0 +1,96 @@
+.hero {
+  display: grid;
+  grid-template-columns: 40fr 60fr;
+  align-items: center;
+
+  @include respond(desktop) {
+    grid-template-columns: 45fr 55fr;
+  }
+
+  @include respond(low) {
+    grid-template-columns: 50fr 50fr;
+  }
+
+  @include respond(mobile) {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+
+  &__text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    &-heading {
+      font-size: 4.8rem;
+      font-weight: 500;
+      font-family: "Lora", serif;
+
+      animation: opacity 2s cubic-bezier(0.4, 0, 1, 1);
+      animation-delay: 0s;
+      animation-fill-mode: backwards;
+
+      @include respond(low) {
+        font-size: 36px;
+      }
+    }
+
+    &-text {
+      font-size: 2.4rem;
+      max-width: 38rem;
+
+      animation: opacity 2s cubic-bezier(0.4, 0, 1, 1);
+      animation-delay: 0.4s;
+      animation-fill-mode: backwards;
+
+      @include respond(low) {
+        font-size: 14px;
+        max-width: 28rem;
+      }
+    }
+
+    &-cta {
+      color: $color-white;
+      font-size: 1.8rem;
+      text-decoration: none;
+      font-weight: 700;
+
+      animation: opacity 2s cubic-bezier(0.4, 0, 1, 1);
+      animation-delay: 0.8s;
+      animation-fill-mode: backwards;
+      border-bottom: 2px solid transparent;
+      display: inline-block;
+      width: fit-content;
+      padding-bottom: 0.6rem;
+
+      &:hover {
+        border-color: $color-white;
+      }
+    }
+  }
+
+  &__img-box {
+    position: relative;
+    padding-left: 10%;
+    margin-bottom: 10rem;
+
+    @include respond(low) {
+      padding-left: 5%;
+    }
+
+    @include respond(mobile) {
+      padding-left: 0;
+    }
+
+    &-img {
+      width: 100%;
+      filter: brightness(1);
+      transition: 0.4s;
+      animation: scale 1.2s ease-in-out backwards;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+}

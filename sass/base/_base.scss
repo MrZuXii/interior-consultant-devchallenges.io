@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500;700&family=Montserrat&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(desktop) {
+    font-size: 56.25%;
+  }
+
+  @include respond(medium) {
+    font-size: 50%;
+  }
+}
+
+body {
+  background-color: $color-black-primary;
+  color: $color-white;
+  font-family: "Montserrat";
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  gap: 5rem;
+  align-items: center;
+
+  @include respond(mobile) {
+    gap: 3rem;
+  }
+  overflow-x: hidden;
+}
+
+*::selection {
+  background-color: $color-gray-dark;
+  color: $color-gray-very-light;
+}

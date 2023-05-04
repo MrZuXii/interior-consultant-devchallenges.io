@@ -1,0 +1,64 @@
+.rectangle {
+  position: absolute;
+  max-width: 400px;
+  width: 75%;
+  height: 20rem;
+  right: 3rem;
+  background: $color-black-primary;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  bottom: 0;
+  transform: translateY(60%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem;
+  font-size: 10px;
+  animation: moveFromBottom 0.7s ease-out;
+
+  @include respond(desktop) {
+    font-size: 9.5px;
+  }
+
+  @include respond(medium) {
+    font-size: 8.5px;
+  }
+
+  &__profile-box {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-left: 0.5rem;
+
+    &-top {
+      width: 5rem;
+      border-radius: 50%;
+    }
+
+    &-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      &--name {
+        font-size: 1.4em;
+      }
+
+      &--job {
+        font-size: 1.2em;
+        color: $color-gray-dark;
+      }
+    }
+  }
+
+  &__text-box {
+    font-family: "Lora", serif;
+    font-weight: 700;
+    font-size: 2.4em;
+    max-width: 25rem;
+
+    @include respond(medium) {
+      font-size: 18px;
+    }
+  }
+}

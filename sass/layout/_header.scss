@@ -1,0 +1,117 @@
+.header {
+  padding-top: 4.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  animation: moveFromTop 0.7s ease-out;
+
+  &__logo {
+    width: 102px;
+    height: 32px;
+    border: 1px solid $color-white;
+    font-size: 14px;
+    font-family: "Crimson Pro", serif;
+    text-transform: uppercase;
+    line-height: 32px;
+    text-align: center;
+  }
+
+  &__nav {
+    @include respond(mobile) {
+      transform: translateX(100%);
+      transition: 0.7s;
+    }
+
+    ul {
+      list-style: none;
+      font-weight: 500;
+      font-size: 1.8rem;
+      display: flex;
+      gap: 8.6rem;
+
+      @include respond(mobile) {
+        display: none;
+      }
+
+      li {
+        a:link,
+        a:visited {
+          color: $color-white;
+          text-decoration: none;
+          padding-bottom: 0.8rem;
+          display: inline-block;
+          border-bottom: 2px solid transparent;
+
+          &:hover {
+            font-weight: 700;
+            border-color: $color-white;
+          }
+        }
+      }
+    }
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+    z-index: 1000;
+    display: none;
+
+    @include respond(mobile) {
+      display: block;
+    }
+
+    svg {
+      stroke: $color-gray-very-light;
+    }
+
+    &-open {
+      display: block;
+    }
+
+    &-close {
+      display: none;
+    }
+  }
+
+  &.open {
+    & .header {
+      &__nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-black-primary;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transform: translateX(0%);
+
+        & ul {
+          display: flex;
+          flex-direction: column;
+          font-size: 18px;
+          gap: 4rem;
+        }
+      }
+
+      &__btn {
+        &-open {
+          display: none;
+        }
+
+        &-close {
+          display: block;
+          transform: translateX(0%);
+        }
+      }
+    }
+  }
+}
