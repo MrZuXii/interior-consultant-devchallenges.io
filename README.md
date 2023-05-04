@@ -22,7 +22,7 @@
 
 ## Overview
 
-![screenshot](./img/screenshot.png)
+![screenshot](/img/screenshot.png)
 
 ### Built With
 
