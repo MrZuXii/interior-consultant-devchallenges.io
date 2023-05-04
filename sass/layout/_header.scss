@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   animation: moveFromTop 0.7s ease-out;
+  position: relative;
 
   &__logo {
     width: 102px;
@@ -19,8 +20,22 @@
 
   &__nav {
     @include respond(mobile) {
-      transform: translateX(100%);
-      transition: 0.7s;
+      transition: 1s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: $color-black-primary;
+
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      visibility: hidden;
+      opacity: 0;
     }
 
     ul {
@@ -31,9 +46,10 @@
       gap: 8.6rem;
 
       @include respond(mobile) {
-        display: none;
+        flex-direction: column;
+        font-size: 18px;
+        gap: 4rem;
       }
-
       li {
         a:link,
         a:visited {
@@ -60,6 +76,7 @@
     cursor: pointer;
     z-index: 1000;
     display: none;
+    position: relative;
 
     @include respond(mobile) {
       display: block;
@@ -70,29 +87,33 @@
     }
 
     &-open {
-      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      visibility: visible;
+      opacity: 1;
+      transition: 0.7s;
     }
 
     &-close {
-      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.7s;
     }
   }
 
   &.open {
     & .header {
       &__nav {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $color-black-primary;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        transform: translateX(0%);
+        opacity: 1;
+        visibility: visible;
 
         & ul {
           display: flex;
@@ -104,12 +125,13 @@
 
       &__btn {
         &-open {
-          display: none;
+          opacity: 0;
+          visibility: hidden;
         }
 
         &-close {
-          display: block;
-          transform: translateX(0%);
+          opacity: 1;
+          visibility: visible;
         }
       }
     }
